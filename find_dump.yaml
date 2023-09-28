@@ -1,5 +1,6 @@
 ---
 - name: Recursively find /var/lib/pgsql/production_dumps/
+  hosts: dbserver
   tasks:
    - name: find dumps
      ansible.builtin.find:
