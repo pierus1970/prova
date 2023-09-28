@@ -1,3 +1,4 @@
+---
 - name: Recursively find /var/lib/pgsql/production_dumps/
   ansible.builtin.find:
     path: /var/lib/pgsql/production_dumps/
