@@ -3,10 +3,11 @@
   hosts: dbserver
 
   tasks:
+  - name: find *.gz files
     ansible.builtin.find:
       path: /var/lib/pgsql/production_dumps/
-      patterns: "*.gz"
+      patterns: "*.gz" 
     register: output_find
-
+  - name: debug variable 
     ansible.builtin.debug:
       var: output_find
