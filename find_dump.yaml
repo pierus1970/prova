@@ -2,13 +2,15 @@
 - name: Recursively find /var/lib/pgsql/production_dumps
   hosts: dbserver
   become: true
+  gather_facts: false
 
   tasks:
   - name: find *.gz files
     ansible.builtin.find:
-      path: /var/lib/pgsql/production_dumps
+      path: "/var/lib/pgsql/production_dumps"
       patterns: "*.gz" 
     register: output_find
+
   - name: debug variable 
     ansible.builtin.debug:
       var: output_find
