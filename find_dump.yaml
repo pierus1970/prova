@@ -7,7 +7,7 @@
   tasks:
   - name: find *.gz files
     ansible.builtin.find:
-      path: "/var/lib/pgsql/production_dumps/"
+      paths: "/var/lib/pgsql/production_dumps/"
       patterns: "*.gz" 
       recurse: true
     register: output_find
