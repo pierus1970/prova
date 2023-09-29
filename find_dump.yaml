@@ -1,6 +1,7 @@
 ---
 - name: Recursively find /var/lib/pgsql/production_dumps/
   hosts: dbserver
+  become: yes
 
   tasks:
   - name: find *.gz files
