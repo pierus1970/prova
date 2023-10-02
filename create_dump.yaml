@@ -6,7 +6,7 @@
     - name: "Back up the database"
       postgresql_db:
         state: dump
-        name : "{{db_name}}.dump.gz"
+        name : "{{db_name}}"
         target: "/tmp"
       become: yes
       become_user: postgresql
