@@ -2,18 +2,18 @@
 - hosts: dbserver
   become: yes
 
-   tasks:
-     - name: "Back up the database"
-       postgresql_db:
-         state: dump
-         name : "{{db_name}}.dump.gz"
-         target: "/tmp"
+  tasks:
+    - name: "Back up the database"
+      postgresql_db:
+        state: dump
+        name : "{{db_name}}.dump.gz"
+        target: "/tmp"
       become: yes
       become_user: postgresql
 
-     - name: "fetch backup from server"
-       fetch:
-         src: "var/lib/pgsql/production_dumps/"
-         dest: "./{{db_name}}.dump.gz"
+    - name: "fetch backup from server"
+      fetch:
+        src: "var/lib/pgsql/production_dumps/"
+        dest: "./{{db_name}}.dump.gz"
 
 
