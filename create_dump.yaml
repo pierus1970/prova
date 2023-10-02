@@ -7,7 +7,7 @@
       postgresql_db:
         state: dump
         name : "{{db_name}}"
-        target: "/tmp"
+        target: "/tmp/{{db_name}}.dump.gz"
       become: yes
       become_user: postgresql
 
